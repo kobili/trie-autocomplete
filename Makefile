@@ -1,10 +1,10 @@
 build:
-	mkdir -p build; clang++ -o build/program src/*.cpp
+	mkdir -p dist; clang++ -o dist/program src/*.cpp
 
 clean:
-	rm -rf build
+	rm -rf dist
 
-.PHONY: clean build
+.PHONY: clean dist
 
 run:
-	./build/program
+	./dist/program
