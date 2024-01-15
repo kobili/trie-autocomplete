@@ -1,7 +1,12 @@
 #include <iostream>
+#include <string>
+#include "Trie.h"
 
 int main() {
     std::cout << "Hello World!";
-    int i = 0;
+    std::string str = "deep";
+
+    autosearch::Trie trie = autosearch::Trie();
+
     return 0;
 }
