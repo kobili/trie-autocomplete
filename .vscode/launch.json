@@ -2,7 +2,7 @@
     "configurations": [
         {
             "name": "C/C++: clang++ build and debug project",
-            "type": "cppdbg",
+            "type": "lldb",
             "request": "launch",
             "program": "${workspaceFolder}/debug/main",
             "args": [],

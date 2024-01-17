@@ -1,5 +1,5 @@
 build:
-	mkdir -p dist; clang++ -o dist/program src/*.cpp
+	mkdir -p dist; clang++ -std=c++20 -o dist/program src/*.cpp
 
 clean:
 	rm -rf dist
