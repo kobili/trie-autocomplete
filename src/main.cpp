@@ -17,7 +17,7 @@ int main() {
 
     autosearch::Trie trie = autosearch::Trie(words);
 
-    std::vector<std::string> search_results = trie.lookup("dog");
+    std::vector<std::string> search_results = trie.lookup("d");
 
     return 0;
 }

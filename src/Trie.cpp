@@ -48,30 +48,30 @@ Trie::Trie(std::vector<std::string> words) {
 }
 
 void Trie::insert(std::string word) {
-    TrieNode cursor = this->head;
+    TrieNode* cursor = &this->head;
     for (int i = 0; i < word.length(); i++) {
-        if (!cursor.children.contains(word[i])) {
-            cursor.children.insert({word[i], TrieNode(word[i])});
+        if (!cursor->children.contains(word[i])) {
+            cursor->children.emplace(word[i], TrieNode(word[i]));
         }
-        cursor = cursor.children.at(word[i]);
+        cursor = &cursor->children.at(word[i]);
     }
     // cursor now points at the node representing the last character in word
-    cursor.is_word = true;
-    cursor.word = word;
+    cursor->is_word = true;
+    cursor->word = word;
 }
 
 std::vector<std::string> Trie::lookup(std::string prefix) {
     std::vector<std::string> words = std::vector<std::string>();
 
-    TrieNode cursor = this->head;
+    TrieNode* cursor = &this->head;
     for (int i = 0; i < prefix.length(); i++) {
-        if (!cursor.children.contains(prefix[i])) {
+        if (!cursor->children.contains(prefix[i])) {
             return words;
         }
-        cursor = cursor.children.at(prefix[i]);
+        cursor = &cursor->children.at(prefix[i]);
     }
     // cursor now points at the nod representing the last character in prefix
-    cursor.collect_words(words);
+    cursor->collect_words(words);
 
     return words;
 }
